@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>画像ギャラリー</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: red;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); /* 5列 */
+      gap: 20px;
+      padding: 20px;
+      justify-items: center;
+    }
+
+    .image-container {
+      background: white;
+      width: 180px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+    }
+
+    @media screen and (max-width: 1000px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr); /* モバイル対応 */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>画像ギャラリー</header>
+
+  <div class="gallery" id="gallery">
+    <!-- JavaScriptで画像が追加されます -->
+  </div>
+
+  <script>
+    // 表示したい画像のURLリスト
+    const imageUrls = [
+      "https://kitan.jp/products/rbenanimal5/",
+      "https://example.com/kirby2.jpg",
+      "https://example.com/kirby3.jpg",
+      "https://example.com/kirby4.jpg",
+      "https://example.com/kirby5.jpg",
+      "https://example.com/kirby6.jpg"
+    ];
+
+    const gallery = document.getElementById('gallery');
+
+    imageUrls.forEach(url => {
+      const container = document.createElement('div');
+      container.className = 'image-container';
+
+      const img = document.createElement('img');
+      img.src = url;
+      img.alt = '商品画像';
+
+      container.appendChild(img);
+      gallery.appendChild(container);
+    });
+  </script>
+</body>
+</html>
